@@ -4,9 +4,13 @@
   "aliasName": "الاسم",
   "mobile_number": "رقم الهاتف المحمول",
   "location": "الموقع",
-  "services_provided": "الخدمات المقدمة",
+  "services_provided": "الخدمات",
   "telegram_account": "حساب تيليجرام",
   "other_accounts": "حسابات أخرى",
   "reviews": "التعليقات",
-  "status": "الحالة"
+  "status": "الحالة",
+  "blackList": "النصابين",
+  "contact": "تواصل معنا",
+  "trade": "دليل المعاملات"
+
 }

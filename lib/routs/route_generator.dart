@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/home_screen.dart';
+import 'package:trustedtallentsvalley/fetures%20/Home/uis/blackList_screen.dart';
 import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
@@ -48,7 +48,7 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (_) => ChangeNotifierProvider.value(
             value: sl<HomeProvider>(),
-            child: HomeScreen(),
+            child: BlackListUsersScreen(),
           ),
         );
       // // --------------------------- ReSetPasswordScreen -----------------------

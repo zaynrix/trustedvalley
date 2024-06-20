@@ -24,54 +24,67 @@ class SideBarInformation extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "معلومات التواصل",
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  ChipWidget(
-                      isTrusted: provider.selectedUser?.isTrusted ?? false),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: IconButton(
-                      onPressed: () {
-                        provider.closeBar();
-                      },
-                      icon: Icon(Icons.close),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Text(
+                      "معلومات التواصل",
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
-              ),
-              Divider(),
-              UserInfoItem(
-                iconData: Icons.person,
-                title: "Name",
-                subtitle: provider.selectedUser?.aliasName ?? '',
-              ),
-              UserInfoItem(
-                iconData: Icons.phone,
-                title: "Mobile Number",
-                subtitle: provider.selectedUser?.mobileNumber ?? '',
-              ),
-              UserInfoItem(
-                iconData: Icons.location_on,
-                title: "Location",
-                subtitle: provider.selectedUser?.location ?? '',
-              ),
-            ],
+                    const SizedBox(
+                      width: 16,
+                    ),
+                    ChipWidget(
+                        isTrusted: provider.selectedUser?.isTrusted ?? false),
+                  ],
+                ),
+                const Divider(
+                  thickness: 2,
+                  color: Colors.black54,
+                ),
+                UserInfoItem(
+                  iconData: Icons.person,
+                  title: "aliasName",
+                  subtitle: provider.selectedUser?.aliasName ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.phone,
+                  title: "mobile_number",
+                  subtitle: provider.selectedUser?.mobileNumber ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.location_on,
+                  title: "location",
+                  subtitle: provider.selectedUser?.location ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.settings_rounded,
+                  title: "services_provided",
+                  subtitle: provider.selectedUser?.servicesProvided ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.telegram,
+                  title: "telegram_account",
+                  subtitle: provider.selectedUser?.telegramAccount ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.location_on,
+                  title: "other_accounts",
+                  subtitle: provider.selectedUser?.telegramAccount ?? '',
+                ),
+                UserInfoItem(
+                  iconData: Icons.star_border_purple500_outlined,
+                  title: "reviews",
+                  subtitle: provider.selectedUser?.reviews ?? '',
+                ),
+              ],
+            ),
           ),
         ),
       ),

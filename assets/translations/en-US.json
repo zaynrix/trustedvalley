@@ -8,6 +8,11 @@
   "telegram_account": "Telegram Account",
   "other_accounts": "Other Accounts",
   "reviews": "Reviews",
-  "status": "Status"
+  "status": "Status",
+  "copied": "Copied to clipboard",
+  "blackList": "Black List Users",
+  "contact": "Contact Us",
+  "trade": "How to trade"
+
 
 }

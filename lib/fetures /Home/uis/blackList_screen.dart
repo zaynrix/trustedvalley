@@ -3,25 +3,21 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/contactUs_screen.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/trade_screen.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/sideBarWidget.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTable.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTableVerticalLayout.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
-import 'blackList_screen.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class BlackListUsersScreen extends StatelessWidget {
+  const BlackListUsersScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         // automaticallyImplyLeading: false,
-        title: const Text('title').tr(),
+        title: const Text('blackList').tr(),
         actions: [
           TextButton(
               onPressed: () {
@@ -47,7 +43,6 @@ class HomeScreen extends StatelessWidget {
               ))
         ],
       ),
-      drawer: AppDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: StreamBuilder<QuerySnapshot>(
@@ -103,79 +98,6 @@ class HomeScreen extends StatelessWidget {
             );
           },
         ),
-      ),
-    );
-  }
-}
-
-class AppDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.block),
-            title: const Text('blackList').tr(),
-            onTap: () {
-              // Handle the action for Black List Users
-              Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => BlackListUsersScreen()));
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.description),
-            title: const Text('trade').tr(),
-            onTap: () {
-              // Handle the action for Transactions Guide
-              Navigator.pop(context);
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const TransactionsGuideScreen()));
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.contact_mail),
-            title: const Text('contact').tr(),
-            onTap: () {
-              // Handle the action for Contact Us
-              Navigator.pop(context);
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ContactUsScreen()));
-            },
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class TrustedUsersScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Trusted Users'),
-      ),
-      body: const Center(
-        child: Text('Content for Trusted Users'),
       ),
     );
   }
