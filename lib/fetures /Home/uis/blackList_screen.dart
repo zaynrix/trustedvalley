@@ -6,8 +6,6 @@ import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.da
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/sideBarWidget.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTable.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTableVerticalLayout.dart';
-import 'package:trustedtallentsvalley/routs/app_router.dart';
-import 'package:trustedtallentsvalley/service_locator.dart';
 
 class BlackListUsersScreen extends StatelessWidget {
   const BlackListUsersScreen({super.key});
@@ -16,38 +14,17 @@ class BlackListUsersScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.red,
         // automaticallyImplyLeading: false,
         title: const Text('blackList').tr(),
-        actions: [
-          TextButton(
-              onPressed: () {
-                if (sl<AppRouter>().navigatorKey.currentContext!.locale ==
-                    const Locale('en', 'US')) {
-                  sl<AppRouter>()
-                      .navigatorKey
-                      .currentContext!
-                      .setLocale(const Locale('ar', 'AR'));
-                } else {
-                  sl<AppRouter>()
-                      .navigatorKey
-                      .currentContext!
-                      .setLocale(const Locale('en', 'US'));
-                }
-              },
-              child: Text(
-                sl<AppRouter>().navigatorKey.currentContext!.locale ==
-                        const Locale('en', 'US')
-                    ? "العربية"
-                    : "English",
-                style: const TextStyle(color: Colors.white),
-              ))
-        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: StreamBuilder<QuerySnapshot>(
-          stream:
-              FirebaseFirestore.instance.collection('userstransed').snapshots(),
+          stream: FirebaseFirestore.instance
+              .collection('userstransed')
+              .where('isTrusted', isEqualTo: false)
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));

@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.green,
         // automaticallyImplyLeading: false,
         title: const Text('title').tr(),
         actions: [
@@ -51,8 +52,10 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: StreamBuilder<QuerySnapshot>(
-          stream:
-              FirebaseFirestore.instance.collection('userstransed').snapshots(),
+          stream: FirebaseFirestore.instance
+              .collection('userstransed')
+              .where("isTrusted", isEqualTo: true)
+              .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Center(child: Text('Error: ${snapshot.error}'));
@@ -117,13 +120,15 @@ class AppDrawer extends StatelessWidget {
         children: <Widget>[
           const DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.black12,
             ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
+            child: Center(
+              child: Text(
+                'ادارة جروب الحوالات المالية',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 24,
+                ),
               ),
             ),
           ),
@@ -162,20 +167,6 @@ class AppDrawer extends StatelessWidget {
             },
           ),
         ],
-      ),
-    );
-  }
-}
-
-class TrustedUsersScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Trusted Users'),
-      ),
-      body: const Center(
-        child: Text('Content for Trusted Users'),
       ),
     );
   }

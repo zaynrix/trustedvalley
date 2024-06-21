@@ -17,12 +17,6 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // setUser(UserModel selected) {
-  //   selectedUser = selected;
-  //   print("this is selected user ${selectUserModel usered.aliasName}");
-  //   notifyListeners();
-  // }
-
   closeBar() {
     showSideBar = !showSideBar;
     notifyListeners();
