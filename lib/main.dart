@@ -19,10 +19,10 @@ main() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-          apiKey: "AIzaSyBKJlrb0x0TOysC9F8nQ7WqMXsS807-KsU",
-          appId: "1:669134402500:web:ea1ed752554832c0d72a91",
-          messagingSenderId: "669134402500",
-          projectId: "mobile-informations"),
+          apiKey: "AIzaSyC_xVfBVGpI6s371eh5m7zQIxy_s0LEqag",
+          appId: "1:511012871086:web:3d64951c90d03b7a39463f",
+          messagingSenderId: "511012871086",
+          projectId: "truested-776cd"),
     );
   }
   await ScreenUtil.ensureScreenSize();
