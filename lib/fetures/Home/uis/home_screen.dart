@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:trustedtallentsvalley/fetures/Home/uis/blackList_screen.dart';
 import 'package:trustedtallentsvalley/fetures/Home/uis/contactUs_screen.dart';
 import 'package:trustedtallentsvalley/fetures/Home/uis/trade_screen.dart';
 import 'package:trustedtallentsvalley/fetures/Home/widgets/sideBarWidget.dart';
@@ -10,8 +11,6 @@ import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTable.dart';
 import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTableVerticalLayout.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
-
-import 'blackList_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
