@@ -27,7 +27,6 @@ main() async {
   }
   await ScreenUtil.ensureScreenSize();
   await init();
-  //
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AR')],
       path: 'assets/translations',
