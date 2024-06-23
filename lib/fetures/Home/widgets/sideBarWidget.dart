@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/chipWidget.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/userInfoItem.dart';
+import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/chipWidget.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/userInfoItem.dart';
 
 class SideBarInformation extends StatelessWidget {
   const SideBarInformation({

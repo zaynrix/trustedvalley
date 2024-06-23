@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/models/user_model.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/chipWidget.dart';
+import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:trustedtallentsvalley/fetures/Home/models/user_model.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/chipWidget.dart';
 
 class UsersTable extends StatelessWidget {
   const UsersTable({
