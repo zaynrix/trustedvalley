@@ -4,7 +4,7 @@ import 'package:trustedtallentsvalley/fetures/Home/uis/home_screen.dart';
 import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
-import '../fetures /Home/Providers/home_provider.dart';
+import '../fetures/Home/Providers/home_provider.dart';
 
 class RouteGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
