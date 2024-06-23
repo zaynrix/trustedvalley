@@ -11,10 +11,6 @@ import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
 import 'fetures /Home/Providers/home_provider.dart';
-//
-//
-//
-//
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,7 +27,7 @@ main() async {
   }
   await ScreenUtil.ensureScreenSize();
   await init();
-
+  //
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AR')],
       path: 'assets/translations',
