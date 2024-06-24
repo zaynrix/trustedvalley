@@ -13,7 +13,6 @@ import 'package:trustedtallentsvalley/service_locator.dart';
 import 'fetures/Home/Providers/home_provider.dart';
 //
 //
-//
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
