@@ -46,6 +46,9 @@ class TrustedGazianApp extends StatelessWidget {
           value: sl<HomeProvider>(),
         )
       ],
+      //
+      //
+
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.onGenerateRoute,
