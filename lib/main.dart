@@ -11,7 +11,7 @@ import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
 import 'fetures /Home/Providers/home_provider.dart';
-
+// Merge Test
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
@@ -46,9 +46,6 @@ class TrustedGazianApp extends StatelessWidget {
           value: sl<HomeProvider>(),
         )
       ],
-      //
-      //
-
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouteGenerator.onGenerateRoute,
