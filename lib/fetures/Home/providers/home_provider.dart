@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:trustedtallentsvalley/config/firebase_constant.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/models/user_model.dart';
+import 'package:trustedtallentsvalley/fetures/Home/models/user_model.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
 class HomeProvider extends ChangeNotifier {

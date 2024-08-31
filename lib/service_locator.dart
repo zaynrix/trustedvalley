@@ -4,9 +4,9 @@ import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trustedtallentsvalley/config/app_config.dart';
+import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
 
-import 'fetures /Home/Providers/home_provider.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
 // import 'package:gym_app/feature/Training/providers/training_provider.dart';
 // import 'package:gym_app/feature/profile/provider/profile_provider.dart';

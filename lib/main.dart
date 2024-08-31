@@ -10,7 +10,7 @@ import 'package:trustedtallentsvalley/routs/route_generator.dart';
 import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
-import 'fetures /Home/Providers/home_provider.dart';
+import 'fetures/Home/Providers/home_provider.dart';
 
 // Merge Test
 main() async {
@@ -28,7 +28,6 @@ main() async {
   }
   await ScreenUtil.ensureScreenSize();
   await init();
-  //
   runApp(EasyLocalization(
       supportedLocales: const [Locale('en', 'US'), Locale('ar', 'AR')],
       path: 'assets/translations',
