@@ -18,12 +18,11 @@ void main() async {
 
   if (kIsWeb) {
    await Firebase.initializeApp(
-    options: FirebaseOptions(
-      apiKey: dotenv.env['FIREBASE_API_KEY']!,
-      appId: dotenv.env['FIREBASE_APP_ID']!,
-      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
-      projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
-    ));
+    options: const FirebaseOptions(
+          apiKey: "AIzaSyC_xVfBVGpI6s371eh5m7zQIxy_s0LEqag",
+          appId: "1:511012871086:web:3d64951c90d03b7a39463f",
+          messagingSenderId: "511012871086",
+          projectId: "truested-776cd"),);
   }
   
   await ScreenUtil.ensureScreenSize();
