@@ -22,7 +22,7 @@ class HomeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  visibleBar({UserModel? selected}) {
+visibleBar({UserModel? selected}) {
     if (selectedUser == selected) {
       showSideBar = !showSideBar; // Toggle sidebar visibility
     } else {

@@ -5,6 +5,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trustedtallentsvalley/config/app_config.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
+import 'package:trustedtallentsvalley/routs/route_generator.dart';
 
 import 'fetures /Home/Providers/home_provider.dart';
 // import 'package:google_sign_in/google_sign_in.dart';
@@ -32,7 +33,7 @@ Future init() async {
   // sl.registerLazySingleton<SharedPrefController>(
   //     () => SharedPrefController(preferences: sl()));
   sl.registerLazySingleton<AppConfig>(() => AppConfig());
-  sl.registerLazySingleton(() => AppRouter());
+  sl.registerLazySingleton(() => AppRouter(router));
 
   // --------------------- Firebase --------------------------------------------
   sl.registerLazySingleton<FirebaseAuth>(() => firebaseAuth);

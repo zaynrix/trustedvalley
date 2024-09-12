@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppRouter {
-  final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+  final GoRouter goRouter;
 
-  goToAndRemove({required String screenName, Object? object}) {
-    navigatorKey.currentState!
-        .pushReplacementNamed(screenName, arguments: object);
+AppRouter(this.goRouter);
+
+  void goTo(String path, {Object? object}) {
+    goRouter.go(path, extra: object);
   }
 
-  goTo({required String screenName, Object? object}) async {
-    return await navigatorKey.currentState!
-        .pushNamed(screenName, arguments: object);
+  void goToAndRemove(String path, {Object? object}) {
+    goRouter.goNamed(path, extra: object);
   }
 
-  back([dynamic result]) {
-    navigatorKey.currentState!.pop(result);
+  void back([dynamic result]) {
+    goRouter.pop(result);
   }
 
-  mayBack() {
-    navigatorKey.currentState!.maybePop();
-  }
+  // void mayBack() {
+  //   goRouter.me();
+  // }
 
-  removeAllBack({required String screenName}) {
-    navigatorKey.currentState!
-        .pushNamedAndRemoveUntil(screenName, (Route<dynamic> route) => false);
+  void removeAllBack(String path) {
+    goRouter.goNamed(path, extra: null);
   }
 }

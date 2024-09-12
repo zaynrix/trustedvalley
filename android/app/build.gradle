@@ -24,8 +24,8 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.example.trustedtallentsvalley"
-    compileSdkVersion flutter.compileSdkVersion
-    ndkVersion flutter.ndkVersion
+    compileSdkVersion flutter.compileSdkVersion // Or hardcode if needed
+    ndkVersion flutter.ndkVersion // Or hardcode if needed
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -42,8 +42,8 @@ android {
 
     defaultConfig {
         applicationId "com.example.trustedtallentsvalley"
-        minSdkVersion flutter.minSdkVersion
-        targetSdkVersion flutter.targetSdkVersion
+        minSdkVersion flutter.minSdkVersion // Or hardcode if needed
+        targetSdkVersion flutter.targetSdkVersion // Or hardcode if needed
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
@@ -53,7 +53,18 @@ android {
 
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
+            // signingConfig signingConfigs.release // Ensure release keystore is configured for production
+            minifyEnabled true // Enable for release builds to shrink the code
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    signingConfigs {
+        release {
+            // storeFile file("path/to/keystore") // Add your actual keystore path
+            storePassword "keystorePassword"
+            keyAlias "keyAlias"
+            keyPassword "keyPassword"
         }
     }
 }

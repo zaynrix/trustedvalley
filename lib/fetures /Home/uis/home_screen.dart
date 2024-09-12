@@ -8,9 +8,6 @@ import 'package:trustedtallentsvalley/fetures%20/Home/uis/trade_screen.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/sideBarWidget.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTable.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTableVerticalLayout.dart';
-import 'package:trustedtallentsvalley/routs/app_router.dart';
-import 'package:trustedtallentsvalley/service_locator.dart';
-
 import 'blackList_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -26,21 +23,17 @@ class HomeScreen extends StatelessWidget {
         actions: [
           TextButton(
               onPressed: () {
-                if (sl<AppRouter>().navigatorKey.currentContext!.locale ==
+                if (context.locale ==
                     const Locale('en', 'US')) {
-                  sl<AppRouter>()
-                      .navigatorKey
-                      .currentContext!
+                 context
                       .setLocale(const Locale('ar', 'AR'));
                 } else {
-                  sl<AppRouter>()
-                      .navigatorKey
-                      .currentContext!
+                 context
                       .setLocale(const Locale('en', 'US'));
                 }
               },
               child: Text(
-                sl<AppRouter>().navigatorKey.currentContext!.locale ==
+               context.locale ==
                         const Locale('en', 'US')
                     ? "العربية"
                     : "English",
