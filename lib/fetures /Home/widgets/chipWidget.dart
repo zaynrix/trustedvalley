@@ -18,11 +18,11 @@ class ChipWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(horizontal: 10),
-        child: Flexible(
-            child: Text(isTrusted == true ? "موثوق" : "نصاب",
-                    style: TextStyle(
-                        color: isTrusted == true ? Colors.green : Colors.red))
-                .tr()),
+        child: Text(
+          isTrusted == true ? "موثوق" : "نصاب",
+          style:
+              TextStyle(color: isTrusted == true ? Colors.green : Colors.red),
+        ).tr(),
       ),
     );
   }

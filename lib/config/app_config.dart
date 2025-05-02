@@ -16,7 +16,7 @@ class AppConfig {
   void onBoardingStatue() {
     Timer(const Duration(seconds: 3), () {
       // checkFirstSeen();
-      nav.goToAndRemove(ScreenName.BNBUser);
+      nav.goTo(ScreenName.BNBUser);
     });
   }
 

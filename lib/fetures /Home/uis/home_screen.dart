@@ -5,9 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/uis/contactUs_screen.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/uis/trade_screen.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/sideBarWidget.dart';
 import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTable.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTableVerticalLayout.dart';
+
 import 'blackList_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -20,26 +19,6 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: Colors.green,
         // automaticallyImplyLeading: false,
         title: const Text('title').tr(),
-        actions: [
-          TextButton(
-              onPressed: () {
-                if (context.locale ==
-                    const Locale('en', 'US')) {
-                 context
-                      .setLocale(const Locale('ar', 'AR'));
-                } else {
-                 context
-                      .setLocale(const Locale('en', 'US'));
-                }
-              },
-              child: Text(
-               context.locale ==
-                        const Locale('en', 'US')
-                    ? "العربية"
-                    : "English",
-                style: const TextStyle(color: Colors.white),
-              ))
-        ],
       ),
       drawer: AppDrawer(),
       body: Padding(
@@ -62,39 +41,41 @@ class HomeScreen extends StatelessWidget {
 
             return LayoutBuilder(
               builder: (context, constraints) {
-                if (constraints.maxWidth > 540) {
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: ConstrainedBox(
-                      constraints:
-                          BoxConstraints(minWidth: constraints.maxWidth),
-                      child: Consumer<HomeProvider>(
-                        builder: (context, provider, child) {
-                          return provider.showSideBar == false
-                              ? UsersTable(users: users)
-                              : Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    UsersTable(users: users),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    provider.showSideBar == false
-                                        ? const SizedBox()
-                                        : const SideBarInformation()
-                                  ],
-                                );
-                        },
-                      ),
+                // if (constraints.maxWidth > 540) {
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minWidth: constraints.maxWidth),
+                    child: Consumer<HomeProvider>(
+                      builder: (context, provider, child) {
+                        return
+                            // provider.showSideBar == false
+                            //   ?
+
+                            UsersTable(users: users);
+                        // : Row(
+                        //     crossAxisAlignment: CrossAxisAlignment.start,
+                        //     mainAxisAlignment: MainAxisAlignment.center,
+                        //     children: [
+                        //       UsersTable(users: users),
+                        //       const SizedBox(
+                        //         width: 20,
+                        //       ),
+                        //       provider.showSideBar == false
+                        //           ? const SizedBox()
+                        //           : const SideBarInformation()
+                        //     ],
+                        //   );
+                      },
                     ),
-                  );
-                } else {
-                  return VerticalLayout(
-                    users: users,
-                    constraints: constraints,
-                  );
-                }
+                  ),
+                );
+                // } else {
+                //   return VerticalLayout(
+                //     users: users,
+                //     constraints: constraints,
+                //   );
+                // }
               },
             );
           },
