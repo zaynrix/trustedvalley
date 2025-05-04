@@ -15,8 +15,7 @@ class BlackListUsersScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        // automaticallyImplyLeading: false,
-        title: const Text('blackList').tr(),
+        title: const Text('blackList').tr(), // Localized AppBar title
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -46,21 +45,17 @@ class BlackListUsersScreen extends StatelessWidget {
                           BoxConstraints(minWidth: constraints.maxWidth),
                       child: Consumer<HomeProvider>(
                         builder: (context, provider, child) {
-                          return provider.showSideBar == false
-                              ? UsersTable(users: users)
-                              : Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    UsersTable(users: users),
-                                    const SizedBox(
-                                      width: 20,
-                                    ),
-                                    provider.showSideBar == false
-                                        ? const SizedBox()
-                                        : const SideBarInformation()
-                                  ],
-                                );
+                          return Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              UsersTable(users: users),
+                              if (provider.showSideBar)
+                                const SizedBox(width: 20),
+                              if (provider.showSideBar)
+                                const SideBarInformation(),
+                            ],
+                          );
                         },
                       ),
                     ),

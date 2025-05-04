@@ -52,7 +52,7 @@ dependencies:
   go_router: ^14.2.7
   flutter_expandable_table: ^2.1.0
   flutter_dotenv: ^5.1.0
-
+  go_provider:
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -136,12 +136,12 @@ class UtilsConfig {
   //   );
   // }
 
-  // static void navigateAfterSuccess({required String screenName}) {
+  // static void navigateAfterSuccess({required String ScreensNames}) {
   //   UtilsConfig.showSnackBarMessage(
   //     message: successAccount.tr(),
   //     status: true,
   //   );
-  //   sl<AppRouter>().goToAndRemove(screenName: screenName);
+  //   sl<AppRouter>().goToAndRemove(ScreensNames: ScreensNames);
   // }
 
   // static void showOnException(FirebaseException exception) {

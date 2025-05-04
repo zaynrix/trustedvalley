@@ -16,7 +16,7 @@ class AppConfig {
   void onBoardingStatue() {
     Timer(const Duration(seconds: 3), () {
       // checkFirstSeen();
-      nav.goTo(ScreenName.BNBUser);
+      nav.goTo(ScreensNames.BNBUser);
     });
   }
 
@@ -26,13 +26,13 @@ class AppConfig {
   //   print("is Auth ? $isAuthenticated");
   //   if (seen) {
   //     if (isAuthenticated) {
-  //       nav.goToAndRemove(screenName: ScreenName.BNBUser);
+  //       nav.goToAndRemove(ScreensNames: ScreensNames.BNBUser);
   //     } else {
-  //       nav.goToAndRemove(screenName: ScreenName.loginScreen);
+  //       nav.goToAndRemove(ScreensNames: ScreensNames.loginScreen);
   //     }
   //   } else {
   //     sl<SharedPrefController>().setShowOnce(true);
-  //     nav.goToAndRemove(screenName: ScreenName.pageViewScreens);
+  //     nav.goToAndRemove(ScreensNames: ScreensNames.pageViewScreens);
   //   }
   // }
 }
