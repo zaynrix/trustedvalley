@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:go_provider/go_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/blackList_screen.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/contactUs_screen.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/home_screen.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/uis/trade_screen.dart';
+import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:trustedtallentsvalley/fetures/Home/uis/blackList_screen.dart';
+import 'package:trustedtallentsvalley/fetures/Home/uis/contactUs_screen.dart';
+import 'package:trustedtallentsvalley/fetures/Home/uis/home_screen.dart';
+import 'package:trustedtallentsvalley/fetures/Home/uis/trade_screen.dart';
 import 'package:trustedtallentsvalley/routs/screens_name.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
-import 'fetures /Home/providers/home_provider.dart';
+import 'fetures/Home/providers/home_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

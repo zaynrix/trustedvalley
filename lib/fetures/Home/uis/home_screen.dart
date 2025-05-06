@@ -2,10 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/Providers/home_provider.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/sideBarWidget.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTable.dart';
-import 'package:trustedtallentsvalley/fetures%20/Home/widgets/usersTableVerticalLayout.dart';
+import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/sideBarWidget.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTable.dart';
+import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTableVerticalLayout.dart';
 
 import '../../../routs/screens_name.dart';
 
