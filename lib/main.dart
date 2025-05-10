@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:trustedtallentsvalley/routs/app_router.dart';
+import 'package:trustedtallentsvalley/routs/route_generator.dart';
 import 'package:trustedtallentsvalley/service_locator.dart';
 
 import 'fetures/Home/providers/home_provider.dart';
@@ -26,15 +28,7 @@ void main() async {
   await init(); // Initializes service locator
 
   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider<HomeProvider>(
-          create: (_) => sl<HomeProvider>(), // Inject HomeProvider
-        ),
-      ],
-      child: const TrustedGazianApp(),
-    ),
-  );
+      ProviderScope(child: TrustedGazianApp()));
 }
 
 class TrustedGazianApp extends StatelessWidget {
@@ -43,10 +37,11 @@ class TrustedGazianApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Initialize the AppRouter
-    final appRouter = sl<AppRouter>();
+    // final appRouter = sl<AppRouter>();
 
     return MaterialApp.router(
-      routerConfig: appRouter.goRouter, // Using the GoRouter configuration
+      routerConfig: appRouter,
+      // routerConfig: appRouter.goRouter, // Using the GoRouter configuration
       debugShowCheckedModeBanner: false,
       scaffoldMessengerKey: GlobalKey<ScaffoldMessengerState>(),
       locale: const Locale('ar', 'AR'), // Set your app's default locale here

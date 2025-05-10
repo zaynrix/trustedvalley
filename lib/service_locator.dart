@@ -18,7 +18,7 @@ Future<void> init() async {
   sl.registerLazySingleton<FirebaseFirestore>(() => FirebaseFirestore.instance);
 
   // Registering providers
-  sl.registerLazySingleton<HomeProvider>(() => HomeProvider());
+  // sl.registerLazySingleton<HomeProvider>(() => HomeProvider());
 
   // Add any other services or providers as needed
 }

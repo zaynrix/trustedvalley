@@ -56,9 +56,9 @@ class AppRouter {
       // ],
       routes: [
         ShellProviderRoute(
-          providers: [
-            ChangeNotifierProvider(
-                create: (_) => sl<HomeProvider>()), // or BlocProvider
+          providers: const [
+            // ChangeNotifierProvider(
+            //     create: (_) => sl<HomeProvider>()), // or BlocProvider
           ],
           builder: (context, state, child) =>
               const HomeScreen(), // ✅ can access FooState

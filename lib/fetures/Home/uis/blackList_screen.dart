@@ -1,17 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:trustedtallentsvalley/fetures/Home/Providers/home_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:trustedtallentsvalley/fetures/Home/providers/home_notifier.dart';
 import 'package:trustedtallentsvalley/fetures/Home/widgets/sideBarWidget.dart';
 import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTable.dart';
 import 'package:trustedtallentsvalley/fetures/Home/widgets/usersTableVerticalLayout.dart';
 
-class BlackListUsersScreen extends StatelessWidget {
+// Provider for blacklisted users stream
+final blackListUsersStreamProvider = StreamProvider<QuerySnapshot>((ref) {
+  return FirebaseFirestore.instance
+      .collection('userstransed')
+      .where('isTrusted', isEqualTo: false)
+      .snapshots();
+});
+
+class BlackListUsersScreen extends ConsumerWidget {
   const BlackListUsersScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
@@ -19,54 +27,50 @@ class BlackListUsersScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: StreamBuilder<QuerySnapshot>(
-          stream: FirebaseFirestore.instance
-              .collection('userstransed')
-              .where('isTrusted', isEqualTo: false)
-              .snapshots(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Center(child: Text('Error: ${snapshot.error}'));
-            }
+        child: Consumer(
+          builder: (context, ref, child) {
+            // Use Riverpod's StreamProvider
+            final usersStreamAsync = ref.watch(blackListUsersStreamProvider);
 
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
+            return usersStreamAsync.when(
+              data: (snapshot) {
+                final users = snapshot.docs;
+                final showSideBar = ref.watch(showSideBarProvider);
 
-            final users = snapshot.data!.docs;
-
-            return LayoutBuilder(
-              builder: (context, constraints) {
-                if (constraints.maxWidth > 540) {
-                  return SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: ConstrainedBox(
-                      constraints:
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    if (constraints.maxWidth > 540) {
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: ConstrainedBox(
+                          constraints:
                           BoxConstraints(minWidth: constraints.maxWidth),
-                      child: Consumer<HomeProvider>(
-                        builder: (context, provider, child) {
-                          return Row(
+                          child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               UsersTable(users: users),
-                              if (provider.showSideBar)
+                              if (showSideBar)
                                 const SizedBox(width: 20),
-                              if (provider.showSideBar)
+                              if (showSideBar)
                                 const SideBarInformation(),
                             ],
-                          );
-                        },
-                      ),
-                    ),
-                  );
-                } else {
-                  return VerticalLayout(
-                    users: users,
-                    constraints: constraints,
-                  );
-                }
+                          ),
+                        ),
+                      );
+                    } else {
+                      return VerticalLayout(
+                        users: users,
+                        constraints: constraints,
+                      );
+                    }
+                  },
+                );
               },
+              loading: () => const Center(child: CircularProgressIndicator()),
+              error: (error, stackTrace) => Center(
+                child: Text('Error: $error'),
+              ),
             );
           },
         ),

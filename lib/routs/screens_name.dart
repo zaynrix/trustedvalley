@@ -1,5 +1,5 @@
 class ScreensNames {
-  static const String splashScreen = '/';
+  // static const String splashScreen = '/';
   static const String pageViewScreens = '/page_view_screens';
   static const String loginScreen = '/login_screen';
   static const String homeScreen = '/home_screen';
@@ -27,8 +27,9 @@ class ScreensNames {
   static const String mealPlanDetails = '/mealPlanDetails';
   static const String notificationTest = '/notificationTest';
   static const String articlesDetailsScreen = '/articlesDetailsScreen';
-  static const String trusted = 'trusted';
-  static const String untrusted = 'untrusted';
-  static const String contactUs = 'contactUs';
-  static const String instruction = 'instruction'; // corrected from 'contactUs'
+  static const String trusted = '/trusted';
+  static const String untrusted = '/untrusted';
+  static const String contactUs = '/contactUs';
+  static const String instruction = '/instruction';
+  static const String home = '/';  // corrected from 'contactUs'
 }
